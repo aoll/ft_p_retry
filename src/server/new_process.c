@@ -24,6 +24,7 @@ int			new_process(int fd)
 	{
 		ret = read_socket(fd);
 		close(fd);
+		exit(ret);
 	}
 	else
 	{

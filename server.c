@@ -43,7 +43,8 @@ static int	create_server(int port)
 	sin.sin6_family = AF_INET6;
 	sin.sin6_port = htons(port);
 	sin.sin6_addr = in6addr_any;
-	bind(sock, (const struct sockaddr *)&sin, sizeof(sin));
+	if (bind(sock, (const struct sockaddr *)&sin, sizeof(sin)) == -1)
+		return (-1)
 	listen(sock, NB_CONN_SOCKET);
 	return (sock);
 }
@@ -86,6 +87,7 @@ int			main(int ac, char **av)
 	int					port;
 	int					sock;
 
+	ft_putstr_fd("hello", 1);
 	if (ac < 2 || ac > 3)
 		usage(av[0]);
 	if ((port = atoi(av[1])) <= 0)
