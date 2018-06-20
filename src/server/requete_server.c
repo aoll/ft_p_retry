@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 00:32:56 by alex              #+#    #+#             */
-/*   Updated: 2017/12/01 17:52:55 by aollivie         ###   ########.fr       */
+/*   Updated: 2018/06/21 00:55:16 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	get_requet_server(t_cs *cs, char **requet)
 
 	if (ft_array_len((const void **)requet) != 2)
 		return (send_error(cs->fd, INVALID_NB_ARG));
-	if (verify_dest(cs, requet[1]) == EXIT_FAILLURE)
+	if (verify_dest_get(cs, requet[1]))
 		return (send_error(cs->fd, NO_ACCESS));
 	if (*requet[1] == '/')
 	{

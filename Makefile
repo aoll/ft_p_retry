@@ -6,7 +6,7 @@
 #    By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/14 17:07:06 by aollivie          #+#    #+#              #
-#    Updated: 2017/12/01 17:06:27 by aollivie         ###   ########.fr        #
+#    Updated: 2018/06/21 01:12:53 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ else
 		CFLAGS=  -Wall -Wextra -Werror
 endif
 
-NAME_SERVER = serveur
+NAME_SERVER = server
 
 NAME_CLIENT = client
 

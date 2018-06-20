@@ -6,7 +6,7 @@
 /*   By: aollivie <aollivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 13:34:01 by aollivie          #+#    #+#             */
-/*   Updated: 2017/12/01 11:06:23 by aollivie         ###   ########.fr       */
+/*   Updated: 2018/06/21 00:39:00 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 # include <sys/wait.h>
 # include "ft_p.h"
 
-int			fork_process_cmd(int fd, char **arg);
+int			fork_process_cmd(int fd, char **arg, t_cs *cs);
 int			cd_requet(t_cs *cs, char **requet);
 int			verify_dest(t_cs *cs, char *dest);
+int	    verify_dest_get(t_cs *cs, char *dest);
 int			verify_multi_dest(t_cs *cs, char **requet);
 int			new_process(int fd);
 int			free_cs(t_cs *cs);
