@@ -20,7 +20,7 @@
 int			fork_process_cmd(int fd, char **arg, t_cs *cs);
 int			cd_requet(t_cs *cs, char **requet);
 int			verify_dest(t_cs *cs, char *dest);
-int	    verify_dest_get(t_cs *cs, char *dest);
+int			verify_dest_get(t_cs *cs, char *dest);
 int			verify_multi_dest(t_cs *cs, char **requet);
 int			new_process(int fd);
 int			free_cs(t_cs *cs);

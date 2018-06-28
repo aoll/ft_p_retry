@@ -39,12 +39,17 @@ static int	create_server(int port)
 	if (!(proto = getprotobyname(PROTOCOLE)))
 		return (-1);
 	ft_memset(&sin, 0, sizeof(sin));
-	sock = socket(PF_INET6, SOCK_STREAM, proto->p_proto);
+	if ((sock = socket(PF_INET6, SOCK_STREAM, proto->p_proto)) == -1)
+		return (-1);
 	sin.sin6_family = AF_INET6;
 	sin.sin6_port = htons(port);
 	sin.sin6_addr = in6addr_any;
-	bind(sock, (const struct sockaddr *)&sin, sizeof(sin));
-	listen(sock, NB_CONN_SOCKET);
+	if (bind(sock, (const struct sockaddr *)&sin, sizeof(sin)) == -1 ||
+		listen(sock, NB_CONN_SOCKET) == -1)
+	{
+		close(sock);
+		return (-1);
+	}
 	return (sock);
 }
 
@@ -65,6 +70,7 @@ static int	main_loop(int sock)
 		}
 		new_process(cs);
 	}
+	return (EXIT_SUCCESS);
 }
 
 static void	set_start_dir(const char *path)

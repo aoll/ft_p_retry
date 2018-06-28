@@ -19,34 +19,34 @@ static int	dup_std(int fd1_dst, int fd1_src, int fd2_dst, int fd2_src)
 	return (EXIT_SUCCESS);
 }
 
-static char  **ft_concat_path(char **arg, t_cs *cs)
+static char	**ft_concat_path(char **arg, t_cs *cs)
 {
-  int   i;
-  char *tmp;
+	int		i;
+	char	*tmp;
 
-  i = 0;
-  while (arg[i])
-  {
-    if (*arg[i] == '-')
-    {
-      i++;
-      continue ;
-    }
-    else if (*arg[i] == '/')
-      tmp = ft_strjoin(cs->home, arg[i]);
-    else
-    {
-      tmp = ft_strjoin(cs->home, "/");
-      tmp = ft_strjoin_free(&tmp, arg[i]);
-    }
-    free(arg[i]);
-    arg[i] = tmp;
-    i++;
-  }
-  return (arg);
+	i = 0;
+	while (arg[i])
+	{
+		if (*arg[i] == '-')
+		{
+			i++;
+			continue ;
+		}
+		else if (*arg[i] == '/')
+			tmp = ft_strjoin(cs->home, arg[i]);
+		else
+		{
+			tmp = ft_strjoin(cs->home, "/");
+			tmp = ft_strjoin_free(&tmp, arg[i]);
+		}
+		free(arg[i]);
+		arg[i] = tmp;
+		i++;
+	}
+	return (arg);
 }
 
-int			  fork_process_cmd(int fd, char **arg, t_cs *cs)
+int			fork_process_cmd(int fd, char **arg, t_cs *cs)
 {
 	pid_t	pid;
 	int		ret;
